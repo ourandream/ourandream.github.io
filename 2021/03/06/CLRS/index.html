@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/headM.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/headS.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CLRS">
+<meta property="og:url" content="http://example.com/2021/03/06/CLRS/index.html">
+<meta property="og:site_name" content="ouran">
+<meta property="og:description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-06T14:09:42.214Z">
+<meta property="article:modified_time" content="2021-03-06T14:22:48.488Z">
+<meta property="article:author" content="ouran">
+<meta property="article:tag" content="algorithm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/03/06/CLRS/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CLRS | ouran</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ouran</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/06/CLRS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="ouran">
+      <meta itemprop="description" content="华师某在校生的博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ouran">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CLRS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-06 22:09:42 / 修改时间：22:22:48" itemprop="dateCreated datePublished" datetime="2021-03-06T22:09:42+08:00">2021-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading/" itemprop="url" rel="index"><span itemprop="name">reading</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。<br>据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。<br>只能看懂多少写多少了。<br><span id="more"></span></p>
+<h1 id="Ⅰ-Foundation-Introduction"><a href="#Ⅰ-Foundation-Introduction" class="headerlink" title="Ⅰ Foundation Introduction"></a>Ⅰ Foundation Introduction</h1><h2 id="2-Getting-Started"><a href="#2-Getting-Started" class="headerlink" title="2 Getting Started"></a>2 Getting Started</h2><h3 id="2-1-Insertion-sort"><a href="#2-1-Insertion-sort" class="headerlink" title="2.1 Insertion sort"></a>2.1 Insertion sort</h3><h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>insertion sort在一个数组的第j个数中，将j按顺序插入它前面的1..j-1的数组,j从2到n重复此操作<br>即不断将一个数有序插入一个有序数组,这样结果也会是有序的<br>它的order of growth 是$\Theta(n^2)$</p>
+<h4 id="Loop-invariant"><a href="#Loop-invariant" class="headerlink" title="Loop invariant"></a>Loop invariant</h4><p>用于证明algorithm的正确性,有以下三个性质:<br>Initialization:在第一次迭代前是正确的<br>Maintenance:在某次迭代前是正确的<br>Termination:在结束时是正确的</p>
+<p>Insertion sort的正确性可用此证明</p>
+<h3 id="2-2-Analyzing-algorithms"><a href="#2-2-Analyzing-algorithms" class="headerlink" title="2.2 Analyzing algorithms"></a>2.2 Analyzing algorithms</h3><h4 id="RAM-Model"><a href="#RAM-Model" class="headerlink" title="RAM Model"></a>RAM Model</h4><p>算法运算的模拟环境,只有简单的语句和功能,单线程</p>
+<h4 id="Runing-time-analyze"><a href="#Runing-time-analyze" class="headerlink" title="Runing-time analyze"></a>Runing-time analyze</h4><p>可假设第i个语句执行一次的时间为$c_i$<br>若执行次数不确定,可假设每次循环中执行时间为$t_i$<br>然后确定执行次数并相加,得到一个式子<br>找到执行实现最长的情况,只处理幂最大的项,忽略常数,得到==order of growth==,如$\Theta(n)$</p>
+<p>要找执行时间最长的情况有以下几个原因:</p>
+<blockquote>
+<ol>
+<li>这样可确定一个执行时间的上界,不用担心超时</li>
+<li>有些算法的最差情况发生的非常频繁</li>
+<li>平均情况经常和最差情况差不多</li>
+</ol>
+</blockquote>
+<h3 id="2-3-Designing-algorithms"><a href="#2-3-Designing-algorithms" class="headerlink" title="2.3 Designing algorithms"></a>2.3 Designing algorithms</h3><h4 id="Divide-and-conquer"><a href="#Divide-and-conquer" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h4><p>分为三个步骤：</p>
+<blockquote>
+<p>divide:把问题分为子问题<br>conquer:递归地解决子问题,当子问题分得足够小时,可以直接简单解决<br>combine:利用子问题的答案解决问题</p>
+</blockquote>
+<h4 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h4><p>将数组分为两部分,那两部分再继续分,知道分到只剩下一个数为止<br>一个数可以视为一个有序数组<br>再利用merge操作解决子问题<br>merge操作即不断比较两个有序数组的最小数,将小的那一个填充进新数组,这样就可以合并两个有序数组<br>它的order of growth是$\Theta(nlgn)$注意lg指$log_2$</p>
+<h2 id="3-Growth-of-Functions"><a href="#3-Growth-of-Functions" class="headerlink" title="3 Growth of Functions"></a>3 Growth of Functions</h2><h3 id="3-1-Asymptotic-notation"><a href="#3-1-Asymptotic-notation" class="headerlink" title="3.1 Asymptotic notation"></a>3.1 Asymptotic notation</h3><h4 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>记号</th>
+<th></th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\Theta$</td>
+<td>Asymptotic tight bound</td>
+<td>$当n\ge n_0存在c_1g(n)\leq f(n) \le c_2g(n)(c_1\;c_2\ge0)$</td>
+</tr>
+<tr>
+<td>$O$</td>
+<td>Asymptotic upper bound</td>
+<td>$当n\ge n_0存在f(n) \le c_2g(n)(c_2\ge0)$</td>
+</tr>
+<tr>
+<td>$\Omega$</td>
+<td>Asympotic lower bound</td>
+<td>$当n\ge n_0存在c_1g(n)\leq f(n)(c_1\ge0)$</td>
+</tr>
+<tr>
+<td>$o$</td>
+<td>$\lim_{n\rightarrow \infty }\frac{f(n)}{g(n)}=0$</td>
+<td>$当n\ge n_0对所有c_2,f(n) \le c_2g(n)(c_2\ge0)$</td>
+</tr>
+<tr>
+<td>$\omega$</td>
+<td>$\lim_{n\rightarrow \infty }\frac{f(n)}{g(n)}=\infty$</td>
+<td>$当n\ge n_0对所有c_1,c_1g(n)\leq f(n)(c_1\ge0)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h4><blockquote>
+<p>Transitivity<br>$f(n)=\Theta(g(n)),g(n)=\Theta(t(n)) \Rightarrow f(n)=\Theta(t(n)$<br>对其他的记号也有类似结论<br>Reflexivity<br>$f(n)=\Theta(g(n)) \Leftrightarrow f(n)=O(n),f(n)=\Omega(g(n)$<br>Symmetry<br>$f(n)=\Theta(g(n)) \Leftrightarrow g(n)=\Theta(f(n))$<br>Transpose symmetry<br>$f(n)=O(g(n)) \Leftrightarrow g(n)=\Omega(f(n)$<br>$f(n)=o(g(n)) \Leftrightarrow g(n)=\omega(f(n)$</p>
+</blockquote>
+<h3 id="3-2-Standard-notation-and-common-functions"><a href="#3-2-Standard-notation-and-common-functions" class="headerlink" title="3.2 Standard notation and common functions"></a>3.2 Standard notation and common functions</h3><h4 id="较为熟悉的数学内容"><a href="#较为熟悉的数学内容" class="headerlink" title="较为熟悉的数学内容"></a>较为熟悉的数学内容</h4><p>Monotonicity(单调性)<br>Polynomials(多项式)<br>Exponentials(指数)<br>Logarithm(对数)<br>注意在增长速率上$指数\ge 多项式 \ge 对数$</p>
+<h4 id="不太熟悉的数学内容"><a href="#不太熟悉的数学内容" class="headerlink" title="不太熟悉的数学内容"></a>不太熟悉的数学内容</h4><h5 id="flooring-and-ceiling"><a href="#flooring-and-ceiling" class="headerlink" title="flooring and ceiling"></a>flooring and ceiling</h5><p>floor(向左取整),ceiling(向右取整),一个取较小整数,一个取较大的<br>符号分别为:$\lfloor\;\rfloor$ $\lceil \;\rceil$</p>
+<p>properties:</p>
+<blockquote>
+<p>$\lfloor \frac{\lfloor \frac{x}{a}\rfloor}{b}\rfloor=\lfloor \frac{x}{ab} \rfloor$<br>$\lceil \frac{\lceil \frac{x}{a}\rceil}{b}\rceil=\lceil \frac{x}{ab} \rceil$<br>$\lceil \frac{a}{b} \rceil \le \frac{a+(b-1)}{b}$<br>$\lfloor\frac{a}{b} \rfloor \ge \frac{a-(b-1)}{b}$</p>
+</blockquote>
+<h5 id="modular-arithmetic"><a href="#modular-arithmetic" class="headerlink" title="modular arithmetic"></a>modular arithmetic</h5><p>即求余数<br>$a\mod b=a-n\lfloor \frac{a}{n} \rfloor$</p>
+<p>注意余数相同可记为:<br>$a \equiv b(mod\;n)$<br>不相同记为:<br>$a \not\equiv b(mod\;n)$</p>
+<h5 id="factorial"><a href="#factorial" class="headerlink" title="factorial"></a>factorial</h5><p>即阶乘<br>Stirling’s approximation:<br>$n!=\sqrt{2\pi n}(\frac{n}{e})^n(1+\Theta(\frac{1}{n}))$</p>
+<h5 id="literated-logarithm-function"><a href="#literated-logarithm-function" class="headerlink" title="literated logarithm function"></a>literated logarithm function</h5><p>Functional iteration:<br>$f^{(i)}(x)=\begin{cases} n\;when\;i=0\\f(f^{i-1}(n) )\;when\;i&gt; 0) \end{cases}$</p>
+<p>literated logarithm function<br>$lg^*n=min(i\ge0 :lg^{(i)}(n)\le 1)$<br>它增长得非常缓慢</p>
+<h5 id="Fibonacci-number"><a href="#Fibonacci-number" class="headerlink" title="Fibonacci number"></a>Fibonacci number</h5><p>即一系列数满足:<br>$F_0=0,F_1=1,F_n=F_{n-1}+F_{n-2} for\;i\ge2$</p>
+<p>它与golden ratio(黄金分割比)<br>即$x=x^2+1$的两根$\phi\;\hat\phi(前正后负)$有如下关系:<br>$F_i=\frac{\phi^i-\hat\phi^i}{\sqrt{5}}$<br>又由$\frac{|\hat\phi^i|}{\sqrt{5}}&lt;\frac{1}{2}$<br>得$F_i=\lfloor \frac{\phi^i}{\sqrt{5}}+\frac{1}{2}\rfloor$</p>
+<h2 id="Divide-and-conquer-1"><a href="#Divide-and-conquer-1" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h2><p>分为三个步骤：</p>
+<blockquote>
+<p>divide:把问题分为子问题<br>conquer:递归地解决子问题,当子问题分得足够小时,可以直接简单解决<br>combine:利用子问题的答案解决问题</p>
+</blockquote>
+<p>recursive case:子问题大到足够递归解决<br>base case:子问题小到不能递归解决<br>recurrence:equation或者inequality表达一个函数,该函数由更小的input构成,用于表达running time<br>解决方法:</p>
+<blockquote>
+<p>substitution method:我们猜测一个界限然后用数学归纳法证明<br>recursive method:利用递归树确定界限<br>master method:解决类似$T(n)=aT(\frac{n}{b})+f(n)$的bound</p>
+</blockquote>
+<p>注意解决recurrence时,我们经常会忽略取整,小的input的值等细节,因为这些一般对结果无影响,但我们需要证明这些细节确实没有影响</p>
+<h3 id="4-3-Substitution-method-for-solving-recurrence"><a href="#4-3-Substitution-method-for-solving-recurrence" class="headerlink" title="4.3 Substitution method for solving recurrence"></a>4.3 Substitution method for solving recurrence</h3><p>核心就是猜范围,然后利用mathematical induction(数学归纳法)证明<br>例子:</p>
+<blockquote>
+<p>$T(n)=2T(\lfloor \frac{n}{2} \rfloor)+n$<br>猜测$T(n)=\Theta(nlgn)$<br>则$T(n)=2T(\lfloor \frac{n}{2} \rfloor)+n\le 2(c\frac{n}{2}.lg(\frac{n}{2}))+n=cnlgn-cnlg2+n$<br>故$T(n)\le cnlgn(c\ge1)$<br>注意当n=1时不成立,故可让$n\ge n_0=2$,,然后以此解决n较小的情况</p>
+</blockquote>
+<p>想要更好的猜测,可以用相似式子的结果来进行猜测,也可以先猜上下界然后一步步缩小猜测</p>
+<p>类似$T(n)=T(n/2)+T(n/2)+1$的式子证明时可将$\Theta(n)写成cn-d$</p>
+<p>注意$T(n)\le cn+n\Rightarrow T(n)=O(n)$是错误的,要注意避免陷阱</p>
+<p>类似$T(n)=T(\lfloor \sqrt{n/2} \rfloor)$的式子可让$n=2^m$</p>
+<h3 id="4-4-recusive-tree"><a href="#4-4-recusive-tree" class="headerlink" title="4.4 recusive tree"></a>4.4 recusive tree</h3><p>画出recurrence的recusive tree，然后计算每一层的cost，然后相加得到一个猜测，然后再用substitution method求解</p>
+<h3 id="4-5-master-method"><a href="#4-5-master-method" class="headerlink" title="4.5 master method"></a>4.5 master method</h3><p>对于形如$T(n)=aT(n/b)+f(n)$的式子(忽略取整),有如下方法可以solve recurrence:</p>
+<blockquote>
+<p>若$f(n)=O(n^{log_ba-\varepsilon})$,其中$\varepsilon&gt;0$,且可任意取,则$T(n)=\Theta(n^{log_ba})$<br>若$f(n)=\Theta(n^{log_ba}),则T(n)=\Theta(n^{log_ba}lgn)$<br>若$f(n)=\Omega(n^{log_ba-\varepsilon}),其中\varepsilon&gt;0$,且可任意取,且对于足够大的n,有$c&lt;1$满足$af(n/b)&lt;cf(n)$,则$T(n)=\Theta(f(n))$</p>
+</blockquote>
+<p>注意上面的对于f(n)和$n^{log_ba}$的比较需要是polynomial的,若不是则不适用.<br>如$nlgn和n$,计算$nlgn/n=lgn$,对于任何的$n^{\varepsilon}(\varepsilon&gt;0)$,$lgn$都是asymptomatic smaller</p>
+<h3 id="proof-of-master-method"><a href="#proof-of-master-method" class="headerlink" title="proof of master method"></a>proof of master method</h3><p>证明思路大概是先画出递归树写出表达式，任何列出调节一步步证明<br>先在$n=b^j$的情况下证明<br>然后证明取整操作对证明无影响</p>
+<h3 id="22-2-Breadth-firest-search"><a href="#22-2-Breadth-firest-search" class="headerlink" title="22.2 Breadth firest search"></a>22.2 Breadth firest search</h3><p>BFS从源点开始，先找出它的所有子节点，然后再从子节点开始一个个重复上述操作，直到子节点为空<br>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">vertex</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> color;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">int</span> pi;</span><br><span class="line">&#125;vertex;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Graph</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> gra[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">&#125;Graph;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(Graph testGraph,vertex *test,<span class="keyword">int</span> n,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        test[i].color=<span class="number">0</span>;</span><br><span class="line">        test[i].d=<span class="number">-1</span>;</span><br><span class="line">        test[i].pi=<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    test[s].color=<span class="number">1</span>;</span><br><span class="line">    test[s].d=<span class="number">0</span>;</span><br><span class="line">    test[s].pi=<span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">queue</span>[n];</span><br><span class="line">    <span class="keyword">int</span> front=<span class="number">-1</span>,rear=<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">queue</span>[++rear]=s;</span><br><span class="line">    <span class="keyword">while</span>(front!=rear)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=<span class="built_in">queue</span>[++front];</span><br><span class="line">        test[temp].color=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(testGraph.gra[temp][i])&#123;</span><br><span class="line">                <span class="keyword">if</span>(!test[i].color)&#123;</span><br><span class="line">                    test[i].color=<span class="number">1</span>;</span><br><span class="line">                    test[i].d=test[temp].d+<span class="number">1</span>;</span><br><span class="line">                    test[i].pi=temp;</span><br><span class="line">                    <span class="built_in">queue</span>[++rear]=i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        test[temp].color=<span class="number">2</span>;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printPath</span><span class="params">(vertex *test,<span class="keyword">int</span> s,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==s)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(test[v].pi==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;No path\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        printPath(test,s,test[v].pi);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>其中的test数组存储着vetex的各种信息，图的edge信息则在testGraph数组里面<br>这样求出的每个vetex的d是从开始点到该点的最短路径<br>该程序事实上生成了BFTree</p>
+<h3 id="22-3-Depth-first-search"><a href="#22-3-Depth-first-search" class="headerlink" title="22.3 Depth first search"></a>22.3 Depth first search</h3><p>DFS是从源点出发，从一个子节点开始一直走到最深处，然后回溯上一级的父节点接着找<br>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">vertex</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> start;</span><br><span class="line">    <span class="keyword">int</span> end;</span><br><span class="line">    <span class="keyword">int</span> color;</span><br><span class="line">    <span class="keyword">int</span> pi;</span><br><span class="line">&#125;vertex;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Graph</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> gra[<span class="number">100</span>][<span class="number">100</span>]; </span><br><span class="line">&#125;Graph;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> time=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFS_Visit</span><span class="params">(Graph testGraph,vertex *test,<span class="keyword">int</span> n,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    time++;</span><br><span class="line">    test[v].start=time;</span><br><span class="line">    test[v].color=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(testGraph.gra[v][i])&#123;</span><br><span class="line">            <span class="keyword">if</span>(!test[i].color)&#123;</span><br><span class="line">                test[i].pi=v;</span><br><span class="line">                DFS_Visit(testGraph,test,n,i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    time++;</span><br><span class="line">    test[v].end=time;</span><br><span class="line">    test[v].color=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFS</span><span class="params">(Graph testGraph,vertex *test,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;++i)&#123;</span><br><span class="line">        test[i].color=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!test[i].color)&#123;</span><br><span class="line">            test[i].pi=<span class="number">-1</span>;</span><br><span class="line">            DFS_Visit(testGraph,test,n,i);</span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>其中的test数组存储着vetex的各种信息，图的edge信息则在testGraph数组里面,time为初始化为0的全局变量</p>
+<p>DFS proprities:</p>
+<blockquote>
+<p>parenthesis theorem</p>
+<blockquote>
+<p>[v.d,v.f],[u.d,u.f] 完全分离，则它们不在同一棵DFTree<br>[v.d,v.j]在[u.d,u.f]中，则v是u的后代<br>[u.d,u.f]在[v.d,v.j]中，则u是v的后代</p>
+</blockquote>
+<p>white-path theorem:v是u的后代当且仅当u.d时有一条u到v的path完全由white vertex 组成</p>
+</blockquote>
+<p>四种edge</p>
+<blockquote>
+<p>tree edge：Edge（u，v）是tree edge当且仅当v是由Edge（u，v）第一次发现的<br>back edge：一种在DFTree里面将v与祖先连接在一起的edge<br>forward edge：一种在DFTree里面将v与后代连接在一起的edge<br>cross edge：除上面之外的所有edge</p>
+</blockquote>
+<p>当DFS找到Edge（u，v）时：</p>
+<blockquote>
+<p>$v.color=white\Rightarrow tree\;edge$<br>$v.color=gray\Rightarrow back\;edge$$(遍历总是从最深的gray\;vertex开始，故v必是u的祖先)$<br>$v.color=black\Rightarrow other \;two\;edges$</p>
+</blockquote>
+<p>undirected graph的edge一定是tree edge或back edge（借助每个edge都是双向的证明）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/06/GSLA/" rel="prev" title="GSLA">
+      <i class="fa fa-chevron-left"></i> GSLA
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/06/python/" rel="next" title="python">
+      python <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81Mjg3Ny8yOTM1NA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%85%A0-Foundation-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Ⅰ Foundation Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Getting-Started"><span class="nav-number">1.1.</span> <span class="nav-text">2 Getting Started</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Insertion-sort"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1 Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-invariant"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Loop invariant</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Analyzing-algorithms"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.2 Analyzing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RAM-Model"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">RAM Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runing-time-analyze"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Runing-time analyze</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Designing-algorithms"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.3 Designing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-and-conquer"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Divide and conquer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge-sort"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Merge sort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Growth-of-Functions"><span class="nav-number">1.2.</span> <span class="nav-text">3 Growth of Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Asymptotic-notation"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.1 Asymptotic notation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#definition"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">properties</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Standard-notation-and-common-functions"><span class="nav-number">1.2.2.</span> <span class="nav-text">3.2 Standard notation and common functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%83%E4%B8%BA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">较为熟悉的数学内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%A4%AA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">不太熟悉的数学内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flooring-and-ceiling"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">flooring and ceiling</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#modular-arithmetic"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">modular arithmetic</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#factorial"><span class="nav-number">1.2.2.2.3.</span> <span class="nav-text">factorial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#literated-logarithm-function"><span class="nav-number">1.2.2.2.4.</span> <span class="nav-text">literated logarithm function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Fibonacci-number"><span class="nav-number">1.2.2.2.5.</span> <span class="nav-text">Fibonacci number</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Divide-and-conquer-1"><span class="nav-number">1.3.</span> <span class="nav-text">Divide and conquer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Substitution-method-for-solving-recurrence"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.3 Substitution method for solving recurrence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-recusive-tree"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.4 recusive tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-master-method"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.5 master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proof-of-master-method"><span class="nav-number">1.3.4.</span> <span class="nav-text">proof of master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-Breadth-firest-search"><span class="nav-number">1.3.5.</span> <span class="nav-text">22.2 Breadth firest search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-Depth-first-search"><span class="nav-number">1.3.6.</span> <span class="nav-text">22.3 Depth first search</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ouran"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">ouran</p>
+  <div class="site-description" itemprop="description">华师某在校生的博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ourandream" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ourandream" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:r008866@163.com" title="E-Mail → mailto:r008866@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/15264568/ouran" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;15264568&#x2F;ouran" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ouran</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+</body>
+</html>
