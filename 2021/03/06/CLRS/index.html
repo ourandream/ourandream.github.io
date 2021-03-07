@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
+  <meta name="description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的没啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CLRS">
 <meta property="og:url" content="http://example.com/2021/03/06/CLRS/index.html">
 <meta property="og:site_name" content="ouran">
-<meta property="og:description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
+<meta property="og:description" content="CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的没啥规律可循。据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。只能看懂多少写多少了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-06T14:09:42.214Z">
-<meta property="article:modified_time" content="2021-03-06T14:22:48.488Z">
+<meta property="article:modified_time" content="2021-03-07T01:19:36.051Z">
 <meta property="article:author" content="ouran">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -188,10 +188,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-06 22:09:42 / 修改时间：22:22:48" itemprop="dateCreated datePublished" datetime="2021-03-06T22:09:42+08:00">2021-03-06</time>
+              <time title="创建时间：2021-03-06 22:09:42" itemprop="dateCreated datePublished" datetime="2021-03-06T22:09:42+08:00">2021-03-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-07 09:19:36" itemprop="dateModified" datetime="2021-03-07T09:19:36+08:00">2021-03-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -220,7 +226,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的每啥规律可循。<br>据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。<br>只能看懂多少写多少了。<br><span id="more"></span></p>
+        <p>CLRS算是非常难读的一本书了，书中的数学证明真的是多的要死，而且看起来真的没啥规律可循。<br>据网上说这本书算是给你开了一扇算法的大门，然后门里的大风差点吹飞你。<br>只能看懂多少写多少了。<br><span id="more"></span></p>
 <h1 id="Ⅰ-Foundation-Introduction"><a href="#Ⅰ-Foundation-Introduction" class="headerlink" title="Ⅰ Foundation Introduction"></a>Ⅰ Foundation Introduction</h1><h2 id="2-Getting-Started"><a href="#2-Getting-Started" class="headerlink" title="2 Getting Started"></a>2 Getting Started</h2><h3 id="2-1-Insertion-sort"><a href="#2-1-Insertion-sort" class="headerlink" title="2.1 Insertion sort"></a>2.1 Insertion sort</h3><h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>insertion sort在一个数组的第j个数中，将j按顺序插入它前面的1..j-1的数组,j从2到n重复此操作<br>即不断将一个数有序插入一个有序数组,这样结果也会是有序的<br>它的order of growth 是$\Theta(n^2)$</p>
 <h4 id="Loop-invariant"><a href="#Loop-invariant" class="headerlink" title="Loop invariant"></a>Loop invariant</h4><p>用于证明algorithm的正确性,有以下三个性质:<br>Initialization:在第一次迭代前是正确的<br>Maintenance:在某次迭代前是正确的<br>Termination:在结束时是正确的</p>
 <p>Insertion sort的正确性可用此证明</p>
@@ -293,7 +299,7 @@
 <p>literated logarithm function<br>$lg^*n=min(i\ge0 :lg^{(i)}(n)\le 1)$<br>它增长得非常缓慢</p>
 <h5 id="Fibonacci-number"><a href="#Fibonacci-number" class="headerlink" title="Fibonacci number"></a>Fibonacci number</h5><p>即一系列数满足:<br>$F_0=0,F_1=1,F_n=F_{n-1}+F_{n-2} for\;i\ge2$</p>
 <p>它与golden ratio(黄金分割比)<br>即$x=x^2+1$的两根$\phi\;\hat\phi(前正后负)$有如下关系:<br>$F_i=\frac{\phi^i-\hat\phi^i}{\sqrt{5}}$<br>又由$\frac{|\hat\phi^i|}{\sqrt{5}}&lt;\frac{1}{2}$<br>得$F_i=\lfloor \frac{\phi^i}{\sqrt{5}}+\frac{1}{2}\rfloor$</p>
-<h2 id="Divide-and-conquer-1"><a href="#Divide-and-conquer-1" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h2><p>分为三个步骤：</p>
+<h2 id="4-Divide-and-conquer"><a href="#4-Divide-and-conquer" class="headerlink" title="4 Divide and conquer"></a>4 Divide and conquer</h2><p>分为三个步骤：</p>
 <blockquote>
 <p>divide:把问题分为子问题<br>conquer:递归地解决子问题,当子问题分得足够小时,可以直接简单解决<br>combine:利用子问题的答案解决问题</p>
 </blockquote>
@@ -345,7 +351,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
           </div>
 
         
@@ -424,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%85%A0-Foundation-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Ⅰ Foundation Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Getting-Started"><span class="nav-number">1.1.</span> <span class="nav-text">2 Getting Started</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Insertion-sort"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1 Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-invariant"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Loop invariant</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Analyzing-algorithms"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.2 Analyzing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RAM-Model"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">RAM Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runing-time-analyze"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Runing-time analyze</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Designing-algorithms"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.3 Designing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-and-conquer"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Divide and conquer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge-sort"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Merge sort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Growth-of-Functions"><span class="nav-number">1.2.</span> <span class="nav-text">3 Growth of Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Asymptotic-notation"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.1 Asymptotic notation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#definition"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">properties</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Standard-notation-and-common-functions"><span class="nav-number">1.2.2.</span> <span class="nav-text">3.2 Standard notation and common functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%83%E4%B8%BA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">较为熟悉的数学内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%A4%AA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">不太熟悉的数学内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flooring-and-ceiling"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">flooring and ceiling</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#modular-arithmetic"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">modular arithmetic</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#factorial"><span class="nav-number">1.2.2.2.3.</span> <span class="nav-text">factorial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#literated-logarithm-function"><span class="nav-number">1.2.2.2.4.</span> <span class="nav-text">literated logarithm function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Fibonacci-number"><span class="nav-number">1.2.2.2.5.</span> <span class="nav-text">Fibonacci number</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Divide-and-conquer-1"><span class="nav-number">1.3.</span> <span class="nav-text">Divide and conquer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Substitution-method-for-solving-recurrence"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.3 Substitution method for solving recurrence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-recusive-tree"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.4 recusive tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-master-method"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.5 master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proof-of-master-method"><span class="nav-number">1.3.4.</span> <span class="nav-text">proof of master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-Breadth-firest-search"><span class="nav-number">1.3.5.</span> <span class="nav-text">22.2 Breadth firest search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-Depth-first-search"><span class="nav-number">1.3.6.</span> <span class="nav-text">22.3 Depth first search</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%85%A0-Foundation-Introduction"><span class="nav-text">Ⅰ Foundation Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Getting-Started"><span class="nav-text">2 Getting Started</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Insertion-sort"><span class="nav-text">2.1 Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0"><span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loop-invariant"><span class="nav-text">Loop invariant</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Analyzing-algorithms"><span class="nav-text">2.2 Analyzing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RAM-Model"><span class="nav-text">RAM Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runing-time-analyze"><span class="nav-text">Runing-time analyze</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Designing-algorithms"><span class="nav-text">2.3 Designing algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divide-and-conquer"><span class="nav-text">Divide and conquer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge-sort"><span class="nav-text">Merge sort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Growth-of-Functions"><span class="nav-text">3 Growth of Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Asymptotic-notation"><span class="nav-text">3.1 Asymptotic notation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#definition"><span class="nav-text">definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties"><span class="nav-text">properties</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Standard-notation-and-common-functions"><span class="nav-text">3.2 Standard notation and common functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%83%E4%B8%BA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-text">较为熟悉的数学内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%A4%AA%E7%86%9F%E6%82%89%E7%9A%84%E6%95%B0%E5%AD%A6%E5%86%85%E5%AE%B9"><span class="nav-text">不太熟悉的数学内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#flooring-and-ceiling"><span class="nav-text">flooring and ceiling</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#modular-arithmetic"><span class="nav-text">modular arithmetic</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#factorial"><span class="nav-text">factorial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#literated-logarithm-function"><span class="nav-text">literated logarithm function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Fibonacci-number"><span class="nav-text">Fibonacci number</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Divide-and-conquer"><span class="nav-text">4 Divide and conquer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Substitution-method-for-solving-recurrence"><span class="nav-text">4.3 Substitution method for solving recurrence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-recusive-tree"><span class="nav-text">4.4 recusive tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-master-method"><span class="nav-text">4.5 master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proof-of-master-method"><span class="nav-text">proof of master method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-Breadth-firest-search"><span class="nav-text">22.2 Breadth firest search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-Depth-first-search"><span class="nav-text">22.3 Depth first search</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,20 +446,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
