@@ -2,63 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ourandream.gitee.io/2021/03/06/gal1/</loc>
+    <loc>https://ourandream.gitee.io/2021/03/06/gal1/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/2021/03/07/hexo/</loc>
+    <loc>https://ourandream.gitee.io/2021/03/07/hexo/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/2021/03/06/CLRS/</loc>
+    <loc>https://ourandream.gitee.io/2021/03/06/CLRS/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/2021/03/06/python/</loc>
+    <loc>https://ourandream.gitee.io/2021/03/06/python/</loc>
     
     <lastmod>2021-03-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/2021/03/06/GSLA/</loc>
+    <loc>https://ourandream.gitee.io/2021/03/06/GSLA/</loc>
     
     <lastmod>2021-03-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/about/index.html</loc>
+    <loc>https://ourandream.gitee.io/about/index.html</loc>
     
     <lastmod>2021-03-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/index.html</loc>
+    <loc>https://ourandream.gitee.io/tags/index.html</loc>
     
     <lastmod>2021-03-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/resources/index.html</loc>
+    <loc>https://ourandream.gitee.io/resources/index.html</loc>
     
     <lastmod>2021-03-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/categories/index.html</loc>
+    <loc>https://ourandream.gitee.io/categories/index.html</loc>
     
     <lastmod>2021-03-05</lastmod>
     
@@ -66,7 +66,7 @@
   
 
   <url>
-    <loc>http://ourandream.gitee.io/</loc>
+    <loc>https://ourandream.gitee.io/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -74,35 +74,35 @@
 
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/algorithm/</loc>
+    <loc>https://ourandream.gitee.io/tags/algorithm/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/%E5%8D%95%E7%BA%BF/</loc>
+    <loc>https://ourandream.gitee.io/tags/%E5%8D%95%E7%BA%BF/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/blog/</loc>
+    <loc>https://ourandream.gitee.io/tags/blog/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/code/</loc>
+    <loc>https://ourandream.gitee.io/tags/code/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/tags/math/</loc>
+    <loc>https://ourandream.gitee.io/tags/math/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -111,28 +111,28 @@
 
   
   <url>
-    <loc>http://ourandream.gitee.io/categories/reading/</loc>
+    <loc>https://ourandream.gitee.io/categories/reading/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/categories/gal/</loc>
+    <loc>https://ourandream.gitee.io/categories/gal/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/categories/others/</loc>
+    <loc>https://ourandream.gitee.io/categories/others/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://ourandream.gitee.io/categories/languages/</loc>
+    <loc>https://ourandream.gitee.io/categories/languages/</loc>
     <lastmod>2021-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
