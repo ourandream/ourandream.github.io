@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ourandream.gitee.io/2021/03/06/python/</loc>
+    <loc>https://ourandream.top/2021/05/13/c++/</loc>
+    <lastmod>2021-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://ourandream.top/2021/03/06/python/</loc>
     <lastmod>2021-03-24</lastmod>
   </url>
   <url>
-    <loc>https://ourandream.gitee.io/2021/03/06/gal1/</loc>
+    <loc>https://ourandream.top/2021/03/06/gal1/</loc>
     <lastmod>2021-03-24</lastmod>
   </url>
   <url>
-    <loc>https://ourandream.gitee.io/2021/03/07/hexo/</loc>
+    <loc>https://ourandream.top/2021/03/07/hexo/</loc>
     <lastmod>2021-03-23</lastmod>
   </url>
   <url>
-    <loc>https://ourandream.gitee.io/2021/03/06/CLRS/</loc>
+    <loc>https://ourandream.top/2021/03/06/CLRS/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>
   <url>
-    <loc>https://ourandream.gitee.io/2021/03/06/GSLA/</loc>
+    <loc>https://ourandream.top/2021/03/06/GSLA/</loc>
     <lastmod>2021-03-06</lastmod>
   </url>
 </urlset> 
